@@ -1,3 +1,21 @@
 [gd_scene format=3 uid="uid://dabcf462sccy3"]
 
-[node name="Main" type="Node2D" unique_id=578547938]
+[ext_resource type="PackedScene" uid="uid://cdtk1m3v2bs40" path="res://scenes/player.tscn" id="1_o5qli"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pvuye"]
+
+[node name="Main" type="Node" unique_id=625890303]
+
+[node name="testLvl" type="Node2D" parent="." unique_id=22435714]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="testLvl" unique_id=1762454213]
+position = Vector2(556, 618)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="testLvl/StaticBody2D" unique_id=972897899]
+scale = Vector2(87.582825, -4.543735)
+shape = SubResource("RectangleShape2D_pvuye")
+
+[node name="Player" parent="." unique_id=239070793 instance=ExtResource("1_o5qli")]
+position = Vector2(557, 339)
+scale = Vector2(1, 1.0873454)
+movState = "flying"
