@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bdhq7v4hfwx7e"]
+
+[ext_resource type="Texture2D" uid="uid://ca7qtckb032t2" path="res://icon.svg" id="1_c8fcr"]
+[ext_resource type="Script" uid="uid://cutpj74qturmg" path="res://scripts/projectile.gd" id="1_q3m7n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pvuye"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pvuye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_c8fcr")
+}],
+"loop": 1,
+"name": &"temp",
+"speed": 5.0
+}]
+
+[node name="Projectile" type="Area2D" unique_id=119969369]
+script = ExtResource("1_q3m7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=949265907]
+shape = SubResource("CircleShape2D_pvuye")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=209863932]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_pvuye")
+animation = &"temp"

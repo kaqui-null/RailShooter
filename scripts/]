@@ -38,19 +38,18 @@ func _input(event):
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == 1:
 			var projectileInstance = projectileScene.instantiate()
-			shoot(event.position)
 			add_child(projectileInstance)
+			shoot(event.position)
 
 		elif event.button_index == 2:
 			special()
 
-
 func shoot(pos):
 	projectileOrigin = position
 	projectileDestination = pos
-	projectileDirection.x = projectileDestination.x - projectileOrigin.x
-	projectileDirection.y = projectileDestination.y - projectileOrigin.y
+	projectileDirection.x = ProjectileDestination.x - projectileOrigin.x
+	projectileDirection.y = ProjectileDestination.y - projectileOrigin.y
 	print(projectileOrigin, projectileDestination, projectileDirection)
 
 func special():
-	pass
+	print('special shot')
