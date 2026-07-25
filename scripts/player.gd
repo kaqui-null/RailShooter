@@ -4,8 +4,10 @@ extends CharacterBody2D
 @export var isGrounded: bool = false
 @export var specialShot: int = 3
 @export var score: int = 0
+@export var continues: int = 2
 
 @onready var playerShotScene = load("res://scenes/player_shot.tscn")
+var gameOverScene = preload("res://scenes/game_over.tscn")
 
 func _physics_process(delta: float) -> void:
 
@@ -49,7 +51,10 @@ func hit():
 		die()
 
 func die(): # add gameOverScreen
-	pass
+	if continues > 0:
+		pass
+	else:
+		get_tree().change_scene_to_packed(gameOverScene)
 
 func shoot():
 	var playerShotInstance = playerShotScene.instantiate()

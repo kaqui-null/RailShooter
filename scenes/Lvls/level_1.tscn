@@ -13,6 +13,7 @@
 position = Vector2(256, 258.667)
 speed = 200
 specialShot = 3
+continues = 0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1783172949]
 position = Vector2(134, 423)

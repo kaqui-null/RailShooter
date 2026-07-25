@@ -44,10 +44,6 @@ offset_right = 306.0
 offset_bottom = 292.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="ContinueButton" type="Button" parent="VBoxContainer" unique_id=877270364]
-layout_mode = 2
-text = "CONTINUE"
-
 [node name="TryAgainButton" type="Button" parent="VBoxContainer" unique_id=1324763555]
 layout_mode = 2
 text = "TRY AGAIN"
@@ -56,6 +52,5 @@ text = "TRY AGAIN"
 layout_mode = 2
 text = "QUIT"
 
-[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/TryAgainButton" to="." method="_on_try_again_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
