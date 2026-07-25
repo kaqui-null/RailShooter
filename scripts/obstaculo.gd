@@ -35,11 +35,9 @@ func obstaclePathingSpecification():
 		origin = spawners[randomSpawn + 1].position
 		destination = spawners[randomSpawn + 1].position
 	elif type == 3:
-		speed = 0
-		acceleration = 0
-		var randomSpawn = randi()%3
-		origin = spawners[randomSpawn + 4].position
-		destination = spawners[randomSpawn + 4].position
+		origin = spawners[0].position
+		destination = spawners[randi()%2 + 4].position
+
 	global_position = origin
 
 func _process(delta: float) -> void:
