@@ -4,8 +4,6 @@ extends Area2D
 @export var acceleration: float = 8.0
 @export var type = 1
 
-var enemyPos: Vector2 = Vector2(0,0)
-
 var projectileOrigin: Vector2
 var projectileDestination: Vector2
 var projectileDirection: Vector2
@@ -43,6 +41,8 @@ func enemyPathingSpecification():
 	elif type == 2:
 		origin = spawners[0].position
 		destination = spawners[randi()%7].position
+		while destination == spawners[0].position:
+			destination = spawners[randi()%7].position
 	elif type == 3:
 		var final = randi() % 2 # (0 ou 1)
 		origin = spawners[final + 1].position
@@ -67,11 +67,15 @@ func _process(delta: float) -> void:
 	if global_position.distance_to(destination) < speed * delta:
 		queue_free()
 
+	# to create new animation
+	if acceleration == 0:
+		await get_tree().create_timer(3).timeout
+		queue_free()
+
 func shoot():
 	var player = sceneRoot.get_node("/root/Level1/Player")
-	enemyPos = player.position
 	projectileOrigin = global_position
-	projectileDestination = enemyPos
+	projectileDestination = player.position
 	projectileDirection.x = projectileDestination.x - projectileOrigin.x
 	projectileDirection.y = projectileDestination.y - projectileOrigin.y
 

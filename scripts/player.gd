@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed: int = 200
 @export var isGrounded: bool = false
 @export var specialShot: int = 3
+@export var score: int = 0
 
 var projectileOrigin = position
 var projectileDestination = Vector2.ZERO
@@ -44,7 +45,7 @@ func _input(event):
 			special()
 
 func hit():
-	pass
+	return true
 
 func die():
 	if hit() and isGrounded == true:
