@@ -28,6 +28,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
+	print(score)
 
 func _input(event):
 
@@ -38,17 +39,22 @@ func _input(event):
 		elif event.button_index == 2:
 			special()
 
-func hit():
-	return true
+func addScore(amount):
+	score += amount
 
-func die():
-	if hit() and isGrounded == true:
-		pass
+func hit():
+	if not isGrounded:
+		isGrounded = true
+	else:
+		die()
+
+func die(): # add gameOverScreen
+	pass
 
 func shoot():
 	var playerShotInstance = playerShotScene.instantiate()
+	playerShotInstance.add_to_group("PlayerProjectile")
 	add_child(playerShotInstance)
-
 
 func special():
 	pass

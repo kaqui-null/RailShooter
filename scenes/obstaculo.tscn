@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bfqrrrs2gxxro"]
+
+[ext_resource type="Script" uid="uid://o8u5rtpgcrnl" path="res://scripts/obstaculo.gd" id="1_fc832"]
+[ext_resource type="Texture2D" uid="uid://ca7qtckb032t2" path="res://icon.svg" id="1_parxj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pvuye"]
+size = Vector2(40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_84e27"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_parxj")
+}],
+"loop": 1,
+"name": &"temp",
+"speed": 5.0
+}]
+
+[node name="Obstaculo" type="Area2D" unique_id=675590315]
+script = ExtResource("1_fc832")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1812349791]
+scale = Vector2(0.99557525, 0.90909094)
+shape = SubResource("RectangleShape2D_pvuye")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1555014766]
+scale = Vector2(0.2166588, 0.8743801)
+sprite_frames = SubResource("SpriteFrames_84e27")
+animation = &"temp"

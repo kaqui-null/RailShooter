@@ -29,4 +29,9 @@ position = Vector2(256, 384)
 [node name="Timer" type="Timer" parent="." unique_id=1662312179]
 autostart = true
 
+[node name="ObstacleTimer" type="Timer" parent="." unique_id=738948177]
+wait_time = 3.0
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]

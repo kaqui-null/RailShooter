@@ -88,3 +88,8 @@ func _on_shoot_timer_timeout() -> void:
 	projectileInstance.direction = projectileDirection.normalized()
 
 	get_tree().current_scene.get_node("Projectiles").add_child(projectileInstance)
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("PlayerProjectile"):
+		queue_free()
