@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var speed: float = 1.0
-@export var acceleration: float = 8.0
+@export var acceleration: float = 1.5
 @export var type = 1
 
 var projectileOrigin: Vector2
@@ -81,6 +81,10 @@ func shoot():
 
 
 func _on_shoot_timer_timeout() -> void:
-	var projectileInstance = projectileScene.instantiate()
 	shoot()
-	add_child(projectileInstance)
+	var projectileInstance = projectileScene.instantiate()
+	projectileInstance.origin = projectileOrigin
+	projectileInstance.destination = projectileDestination
+	projectileInstance.direction = projectileDirection.normalized()
+
+	get_tree().current_scene.get_node("Projectiles").add_child(projectileInstance)

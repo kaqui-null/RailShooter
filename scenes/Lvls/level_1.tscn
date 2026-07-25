@@ -33,3 +33,6 @@ texture = ExtResource("2_ho6vn")
 position = Vector2(364, 408)
 
 [node name="EnemySpawners" parent="." unique_id=1949510763 instance=ExtResource("4_crfbs")]
+testEnemyType = 5
+
+[node name="Projectiles" type="Node2D" parent="." unique_id=2055248795]
