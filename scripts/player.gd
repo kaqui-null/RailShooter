@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: int = 200
-@export var movState: String = "running"
+@export var isGrounded: bool = false
 @export var specialShot: int = 3
 
 var projectileOrigin = position
@@ -12,9 +12,8 @@ var projectileDirection = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 
-
 	var direction = Input.get_vector('left', 'right', 'up', 'down')
-	if movState == "flying":
+	if not isGrounded:
 		if direction:
 			velocity.x = direction.x * speed
 			velocity.y = direction.y * speed
@@ -22,7 +21,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, speed)
 			velocity.y = move_toward(velocity.y, 0, speed)
 
-	elif movState == "running":
+	else:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 
@@ -50,7 +49,6 @@ func shoot(pos):
 	projectileDestination = pos
 	projectileDirection.x = projectileDestination.x - projectileOrigin.x
 	projectileDirection.y = projectileDestination.y - projectileOrigin.y
-	print(projectileOrigin, projectileDestination, projectileDirection)
 
 func special():
 	pass

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cemm1vh5u145b"]
+
+[ext_resource type="PackedScene" uid="uid://cdtk1m3v2bs40" path="res://scenes/player.tscn" id="1_48oql"]
+[ext_resource type="Texture2D" uid="uid://ca7qtckb032t2" path="res://icon.svg" id="2_ho6vn"]
+[ext_resource type="PackedScene" uid="uid://bbo7da7gmh3th" path="res://scenes/Lvls/scrolling_background.tscn" id="3_ho6vn"]
+[ext_resource type="PackedScene" uid="uid://pon1cfnh7gc2" path="res://scenes/Lvls/enemy_spawners.tscn" id="4_crfbs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crfbs"]
+
+[node name="Level1" type="Node2D" unique_id=249277176]
+
+[node name="Player" parent="." unique_id=239070793 instance=ExtResource("1_48oql")]
+position = Vector2(256, 258.667)
+speed = 200
+specialShot = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1783172949]
+position = Vector2(134, 423)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=683483980]
+scale = Vector2(87.582825, -4.543735)
+shape = SubResource("RectangleShape2D_crfbs")
+
+[node name="roughTopLeft" type="Sprite2D" parent="." unique_id=1264973606]
+position = Vector2(62, 63)
+texture = ExtResource("2_ho6vn")
+
+[node name="roughBottomRight" type="Sprite2D" parent="." unique_id=538691310]
+position = Vector2(506, 363)
+texture = ExtResource("2_ho6vn")
+
+[node name="ScrollingBackground" parent="." unique_id=2052676965 instance=ExtResource("3_ho6vn")]
+position = Vector2(364, 408)
+
+[node name="EnemySpawners" parent="." unique_id=1949510763 instance=ExtResource("4_crfbs")]

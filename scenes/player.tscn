@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://ca7qtckb032t2" path="res://icon.svg" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://budvbfbngq7jm" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="PackedScene" uid="uid://bdhq7v4hfwx7e" path="res://scenes/projectile.tscn" id="3_qhqgy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pvuye"]
 radius = 16.0
@@ -22,7 +21,6 @@ animations = [{
 [node name="Player" type="CharacterBody2D" unique_id=239070793]
 script = ExtResource("1_g2els")
 speed = null
-movState = null
 specialShot = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=609509391]
@@ -32,6 +30,3 @@ shape = SubResource("CapsuleShape2D_pvuye")
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_pvuye")
 animation = &"test"
-
-[node name="Projectile" parent="." unique_id=119969369 instance=ExtResource("3_qhqgy")]
-show_behind_parent = true

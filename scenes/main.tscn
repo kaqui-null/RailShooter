@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dabcf462sccy3"]
 
+[ext_resource type="Texture2D" uid="uid://ca7qtckb032t2" path="res://icon.svg" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cdtk1m3v2bs40" path="res://scenes/player.tscn" id="1_o5qli"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pvuye"]
@@ -15,7 +16,17 @@ position = Vector2(134, 423)
 scale = Vector2(87.582825, -4.543735)
 shape = SubResource("RectangleShape2D_pvuye")
 
+[node name="roughTopLeft" type="Sprite2D" parent="testLvl" unique_id=1269478030]
+position = Vector2(62, 63)
+texture = ExtResource("1_0wfyh")
+
+[node name="roughBottomRight" type="Sprite2D" parent="testLvl" unique_id=880328074]
+position = Vector2(506, 363)
+texture = ExtResource("1_0wfyh")
+
 [node name="Player" parent="." unique_id=239070793 instance=ExtResource("1_o5qli")]
-position = Vector2(155, 130)
+position = Vector2(282, 208)
 scale = Vector2(1, 1.0873454)
+speed = 200
 movState = "flying"
+specialShot = 3
