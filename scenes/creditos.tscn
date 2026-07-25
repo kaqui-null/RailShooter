@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://br4hbo2jdehmv"]
+
+[node name="Creditos" type="Control" unique_id=1453205432]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 256.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=312216389]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 384.0
+color = Color(0.16862746, 0.23921569, 1, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=666421643]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.0
+offset_top = -172.0
+offset_right = 236.0
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[color=green][i][b]programming[/b][/i][/color]
+	a
+[color=green][i][b]game design[/b][/i][/color]
+	a
+[color=green][i][b]game art[/b][/i][/color]
+	a
+[color=green][i][b]music[/b][/i][/color]
+	a
+
+
+
+"
+fit_content = true
