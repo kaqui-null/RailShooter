@@ -28,3 +28,9 @@ shape = SubResource("CapsuleShape2D_84e27")
 scale = Vector2(0.38643557, 0.38643557)
 sprite_frames = SubResource("SpriteFrames_pvuye")
 animation = &"temp"
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=2012820162]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

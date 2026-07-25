@@ -43,6 +43,12 @@ func _input(event):
 		elif event.button_index == 2:
 			special()
 
+func hit():
+	pass
+
+func die():
+	if hit() and isGrounded == true:
+		pass
 
 func shoot(pos):
 	projectileOrigin = position

@@ -4,6 +4,16 @@ extends Area2D
 @export var acceleration: float = 8.0
 @export var type = 1
 
+var enemyPos: Vector2 = Vector2(0,0)
+
+var projectileOrigin: Vector2
+var projectileDestination: Vector2
+var projectileDirection: Vector2
+@onready var projectileScene: PackedScene = load("res://scenes/projectile.tscn")
+
+# will only work on the level root
+@onready var sceneRoot = get_tree().get_root()
+
 @export var spawners = [
 	"SpawnCenter",
 	"SpawnTopLeft",
@@ -56,3 +66,17 @@ func _process(delta: float) -> void:
 
 	if global_position.distance_to(destination) < speed * delta:
 		queue_free()
+
+func shoot():
+	var player = sceneRoot.get_node("/root/Level1/Player")
+	enemyPos = player.position
+	projectileOrigin = global_position
+	projectileDestination = enemyPos
+	projectileDirection.x = projectileDestination.x - projectileOrigin.x
+	projectileDirection.y = projectileDestination.y - projectileOrigin.y
+
+
+func _on_shoot_timer_timeout() -> void:
+	var projectileInstance = projectileScene.instantiate()
+	shoot()
+	add_child(projectileInstance)

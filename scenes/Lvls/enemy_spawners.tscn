@@ -4,7 +4,6 @@
 
 [node name="EnemySpawners" type="Node2D" unique_id=1949510763]
 script = ExtResource("1_4vofn")
-testEnemyType = 5
 
 [node name="SpawnCenter" type="Marker2D" parent="." unique_id=1588585703]
 position = Vector2(256, 192)
