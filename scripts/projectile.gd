@@ -10,7 +10,6 @@ func _ready():
 	global_position = origin
 
 func _process(delta: float) -> void:
-	print(direction)
 	global_position += direction * projectileSpeed * delta
 
 	if global_position.distance_to(destination) < projectileSpeed * delta:

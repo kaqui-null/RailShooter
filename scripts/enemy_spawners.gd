@@ -11,4 +11,5 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	var enemyInstance = enemyScene.instantiate()
 	enemyInstance.type = testEnemyType
+	enemyInstance.add_to_group("Enemy")
 	add_child(enemyInstance)

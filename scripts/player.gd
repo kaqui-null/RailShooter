@@ -5,11 +5,7 @@ extends CharacterBody2D
 @export var specialShot: int = 3
 @export var score: int = 0
 
-var projectileOrigin = position
-var projectileDestination = Vector2.ZERO
-var projectileDirection = Vector2.ZERO
-
-@onready var projectileScene = load("res://scenes/projectile.tscn")
+@onready var playerShotScene = load("res://scenes/player_shot.tscn")
 
 func _physics_process(delta: float) -> void:
 
@@ -37,9 +33,7 @@ func _input(event):
 
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == 1:
-			var projectileInstance = projectileScene.instantiate()
-			shoot(event.position)
-			add_child(projectileInstance)
+			shoot()
 
 		elif event.button_index == 2:
 			special()
@@ -51,11 +45,10 @@ func die():
 	if hit() and isGrounded == true:
 		pass
 
-func shoot(pos):
-	projectileOrigin = position
-	projectileDestination = pos
-	projectileDirection.x = projectileDestination.x - projectileOrigin.x
-	projectileDirection.y = projectileDestination.y - projectileOrigin.y
+func shoot():
+	var playerShotInstance = playerShotScene.instantiate()
+	add_child(playerShotInstance)
+
 
 func special():
 	pass
