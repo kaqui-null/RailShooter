@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cdtk1m3v2bs40" path="res://scenes/player.tscn" id="1_48oql"]
 [ext_resource type="Texture2D" uid="uid://igo1ysyi022x" path="res://assets/bgMontanhas.png" id="1_cjm5m"]
 [ext_resource type="PackedScene" uid="uid://bdd7jexgql5yp" path="res://scenes/floor.tscn" id="2_crfbs"]
+[ext_resource type="Script" uid="uid://m411rbrpb5ed" path="res://scripts/spawn_controller_lvl_1.gd" id="4_cjm5m"]
 [ext_resource type="PackedScene" uid="uid://pon1cfnh7gc2" path="res://scenes/Lvls/enemy_spawners.tscn" id="4_crfbs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_crfbs"]
@@ -27,8 +28,6 @@ texture = ExtResource("1_cjm5m")
 
 [node name="Player" parent="." unique_id=239070793 instance=ExtResource("1_48oql")]
 position = Vector2(256, 258.667)
-speed = 200
-specialShot = 3
 continues = 0
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=894356291]
@@ -37,6 +36,15 @@ limit_top = -10
 limit_right = 536
 limit_bottom = 393
 limit_smoothed = true
+
+[node name="SpawnControllerLvl1" type="Node2D" parent="." unique_id=1091292149]
+script = ExtResource("4_cjm5m")
+
+[node name="EnemySpawners" parent="." unique_id=1949510763 instance=ExtResource("4_crfbs")]
+testEnemyType = 5
+testObstacleType = 3
+
+[node name="Projectiles" type="Node2D" parent="." unique_id=2055248795]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1783172949]
 position = Vector2(256, 384)
@@ -67,9 +75,3 @@ position = Vector2(257, -56)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=306248848]
 scale = Vector2(87.582825, -4.543735)
 shape = SubResource("RectangleShape2D_crfbs")
-
-[node name="EnemySpawners" parent="." unique_id=1949510763 instance=ExtResource("4_crfbs")]
-testEnemyType = 5
-testObstacleType = 3
-
-[node name="Projectiles" type="Node2D" parent="." unique_id=2055248795]

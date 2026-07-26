@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var projectileSpeed:float = 600.0
+@export var projectileSpeed:float = 300.0
 
 @onready var origin: Vector2
 @onready var destination: Vector2

@@ -3,13 +3,16 @@ extends CharacterBody2D
 @export var speed: int = 200
 @export var isGrounded: bool = false
 @export var specialShot: int = 3
-@export var score: int = 0
 @export var continues: int = 2
+
+var invincible = false
 
 @onready var playerShotScene = load("res://scenes/player_shot.tscn")
 var gameOverScene = preload("res://scenes/game_over.tscn")
 
 func _physics_process(delta: float) -> void:
+	# invincibilidade
+	isGrounded = false
 
 	var direction = Input.get_vector('left', 'right', 'up', 'down')
 	if not isGrounded:
@@ -30,7 +33,6 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
-	print(score)
 
 func _input(event):
 
@@ -42,9 +44,14 @@ func _input(event):
 			special()
 
 func addScore(amount):
-	score += amount
+	GameGlobals.score += amount
 
 func hit():
+	if invincible:
+		return
+
+	invincible = true
+	$InvincibilityTimer.start()
 	if not isGrounded:
 		isGrounded = true
 	else:
@@ -65,3 +72,7 @@ func shoot():
 
 func special():
 	pass
+
+
+func _on_invincibility_timer_timeout() -> void:
+	invincible = false

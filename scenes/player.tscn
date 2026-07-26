@@ -20,8 +20,6 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=239070793]
 script = ExtResource("1_g2els")
-speed = null
-specialShot = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=609509391]
 shape = SubResource("CapsuleShape2D_pvuye")
@@ -30,3 +28,7 @@ shape = SubResource("CapsuleShape2D_pvuye")
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_pvuye")
 animation = &"test"
+
+[node name="InvincibilityTimer" type="Timer" parent="." unique_id=1273619528]
+
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cuildgw75ycbg" path="res://assets/bgFloresta.png" id="1_dgnyb"]
 [ext_resource type="PackedScene" uid="uid://bdd7jexgql5yp" path="res://scenes/floor.tscn" id="2_2nyr7"]
 [ext_resource type="PackedScene" uid="uid://cdtk1m3v2bs40" path="res://scenes/player.tscn" id="3_7lbts"]
+[ext_resource type="Script" uid="uid://jl53iuuocumy" path="res://scripts/spawn_controller_lvl_2.gd" id="4_2nyr7"]
 [ext_resource type="PackedScene" uid="uid://pon1cfnh7gc2" path="res://scenes/Lvls/enemy_spawners.tscn" id="4_t1a3c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgnyb"]
@@ -34,8 +35,6 @@ texture = ExtResource("1_dgnyb")
 
 [node name="Player" parent="." unique_id=239070793 instance=ExtResource("3_7lbts")]
 position = Vector2(256, 258.667)
-speed = 200
-specialShot = 3
 continues = 0
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=267872193]
@@ -44,6 +43,9 @@ limit_top = -10
 limit_right = 538
 limit_bottom = 394
 limit_smoothed = true
+
+[node name="SpawnControllerLvl2" type="Node2D" parent="." unique_id=2027610470]
+script = ExtResource("4_2nyr7")
 
 [node name="EnemySpawners" parent="." unique_id=1949510763 instance=ExtResource("4_t1a3c")]
 testEnemyType = 5
