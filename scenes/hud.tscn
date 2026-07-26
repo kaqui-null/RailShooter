@@ -1,5 +1,11 @@
 [gd_scene format=3 uid="uid://brx3ghhrkqkgb"]
 
+[ext_resource type="Script" uid="uid://c8vwk8lwoeay" path="res://scripts/control/hud_score_label.gd" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://c5spown0j223s" path="res://scripts/control/stage_label.gd" id="1_uo2fv"]
+[ext_resource type="Script" uid="uid://c4d6mnue4dkht" path="res://scripts/control/life_label.gd" id="2_6fi6k"]
+[ext_resource type="Script" uid="uid://berjsdsunyvo3" path="res://scripts/control/continues_label.gd" id="3_uo2fv"]
+[ext_resource type="Script" uid="uid://v6vv714ppcoa" path="res://scripts/control/bombs_label.gd" id="4_047uy"]
+
 [node name="HUD" type="Control" unique_id=133828489]
 layout_mode = 3
 anchors_preset = 15
@@ -10,14 +16,41 @@ offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HSeparator" type="HSeparator" parent="." unique_id=1546188403]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 4.0
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1279081198]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1.0
+offset_bottom = 77.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+alignment = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="HSeparator" unique_id=1343546049]
+[node name="ContinuesLabel" type="Label" parent="VBoxContainer2" unique_id=2071212986]
+layout_mode = 2
+script = ExtResource("3_uo2fv")
 
-[node name="Label" type="Label" parent="HSeparator" unique_id=1394574858]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="LifeLabel" type="Label" parent="VBoxContainer2" unique_id=699665319]
+layout_mode = 2
+script = ExtResource("2_6fi6k")
+
+[node name="BombsLabel" type="Label" parent="VBoxContainer2" unique_id=125146651]
+layout_mode = 2
+script = ExtResource("4_047uy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=212361914]
+layout_mode = 1
+offset_right = 1.0
+offset_bottom = 50.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="StageLabel" type="Label" parent="VBoxContainer" unique_id=1897631434]
+layout_mode = 2
+script = ExtResource("1_uo2fv")
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer" unique_id=1394574858]
+layout_mode = 2
+script = ExtResource("1_ahhtf")

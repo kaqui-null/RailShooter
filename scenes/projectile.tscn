@@ -2,11 +2,24 @@
 
 [ext_resource type="Texture2D" uid="uid://ca7qtckb032t2" path="res://icon.svg" id="1_c8fcr"]
 [ext_resource type="Script" uid="uid://cutpj74qturmg" path="res://scripts/projectile.gd" id="1_q3m7n"]
+[ext_resource type="Texture2D" uid="uid://b7dl1mqy80ilv" path="res://assets/projInimigo.png" id="2_softn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pvuye"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q2a6"]
+atlas = ExtResource("2_softn")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_pvuye"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q2a6")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_c8fcr")
@@ -23,8 +36,6 @@ script = ExtResource("1_q3m7n")
 shape = SubResource("CircleShape2D_pvuye")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=209863932]
-scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_pvuye")
-animation = &"temp"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

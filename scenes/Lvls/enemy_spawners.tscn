@@ -18,13 +18,13 @@ position = Vector2(480, 0)
 position = Vector2(256, 0)
 
 [node name="SpawnBottomLeft" type="Marker2D" parent="." unique_id=112959114]
-position = Vector2(32, 384)
+position = Vector2(32, 354)
 
 [node name="SpawnBottomRight" type="Marker2D" parent="." unique_id=898913339]
-position = Vector2(480, 384)
+position = Vector2(480, 354)
 
 [node name="SpawnBottomCenter" type="Marker2D" parent="." unique_id=706818105]
-position = Vector2(256, 384)
+position = Vector2(256, 354)
 
 [node name="Timer" type="Timer" parent="." unique_id=1662312179]
 autostart = true
@@ -33,5 +33,10 @@ autostart = true
 wait_time = 3.0
 autostart = true
 
+[node name="ItemTimer" type="Timer" parent="." unique_id=790496155]
+wait_time = 10.0
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]
+[connection signal="timeout" from="ItemTimer" to="." method="_on_item_timer_timeout"]

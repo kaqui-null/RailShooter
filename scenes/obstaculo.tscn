@@ -2,12 +2,49 @@
 
 [ext_resource type="Script" uid="uid://o8u5rtpgcrnl" path="res://scripts/obstaculo.gd" id="1_fc832"]
 [ext_resource type="Texture2D" uid="uid://ca7qtckb032t2" path="res://icon.svg" id="1_parxj"]
+[ext_resource type="Texture2D" uid="uid://bew2ooqyycqxd" path="res://assets/obstaculo/obstáculos.png" id="2_5m5tv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pvuye"]
 size = Vector2(40, 40)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m5tv"]
+atlas = ExtResource("2_5m5tv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txv5h"]
+atlas = ExtResource("2_5m5tv")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ccot"]
+atlas = ExtResource("2_5m5tv")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_84e27"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5m5tv")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txv5h")
+}],
+"loop": 1,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ccot")
+}],
+"loop": 1,
+"name": &"3",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_parxj")
@@ -21,10 +58,11 @@ animations = [{
 script = ExtResource("1_fc832")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1812349791]
-scale = Vector2(0.99557525, 0.90909094)
+scale = Vector2(0.6369826, 0.8805331)
 shape = SubResource("RectangleShape2D_pvuye")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1555014766]
-scale = Vector2(0.2166588, 0.8743801)
 sprite_frames = SubResource("SpriteFrames_84e27")
-animation = &"temp"
+animation = &"3"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

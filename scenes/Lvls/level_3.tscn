@@ -2,9 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://cct7a6apdsucd" path="res://assets/bgCidade.png" id="1_eou0u"]
 [ext_resource type="PackedScene" uid="uid://bdd7jexgql5yp" path="res://scenes/floor.tscn" id="2_ytsb7"]
+[ext_resource type="Texture2D" uid="uid://sow5die6fmn2" path="res://assets/piso3.png" id="3_7a6tc"]
 [ext_resource type="PackedScene" uid="uid://cdtk1m3v2bs40" path="res://scenes/player.tscn" id="3_ktslq"]
 [ext_resource type="PackedScene" uid="uid://pon1cfnh7gc2" path="res://scenes/Lvls/enemy_spawners.tscn" id="4_7a6tc"]
 [ext_resource type="Script" uid="uid://cgxyilrjdigpp" path="res://scripts/spawn_controller_lvl_3.gd" id="4_ytsb7"]
+[ext_resource type="AudioStream" uid="uid://bte6p7dgmqvi4" path="res://assets/music/ActionMusic2.WAV" id="7_7a6tc"]
+[ext_resource type="PackedScene" uid="uid://brx3ghhrkqkgb" path="res://scenes/hud.tscn" id="8_uddsh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eou0u"]
 
@@ -25,10 +28,12 @@ scale = Vector2(2.2, 2.2)
 texture = ExtResource("1_eou0u")
 
 [node name="Floor" parent="." unique_id=398908868 instance=ExtResource("2_ytsb7")]
+z_index = -1
+ground_texture = ExtResource("3_7a6tc")
 
 [node name="Player" parent="." unique_id=239070793 instance=ExtResource("3_ktslq")]
+z_index = 1
 position = Vector2(256, 258.667)
-continues = 0
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=443988726]
 limit_left = -24
@@ -75,3 +80,18 @@ position = Vector2(257, -56)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1717941791]
 scale = Vector2(87.582825, -4.543735)
 shape = SubResource("RectangleShape2D_eou0u")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=273650589]
+stream = ExtResource("7_7a6tc")
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1398389526]
+
+[node name="HUD" parent="CanvasLayer" unique_id=133828489 instance=ExtResource("8_uddsh")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 512.0
+offset_bottom = 384.0
+grow_horizontal = 1
+grow_vertical = 1

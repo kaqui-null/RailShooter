@@ -2,13 +2,85 @@
 
 [ext_resource type="Texture2D" uid="uid://ca7qtckb032t2" path="res://icon.svg" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://budvbfbngq7jm" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://c0mvbyq5bpuhi" path="res://assets/player/Geriatric(1).png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://dmokcmwi5846a" path="res://assets/explosions/explosion.png" id="3_dqkch"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pvuye"]
-radius = 16.0
 height = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("3_dqkch")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("3_dqkch")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("3_dqkch")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pvuye"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}],
+"loop": 0,
+"name": &"dies",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_3vyb7")
@@ -20,14 +92,17 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=239070793]
 script = ExtResource("1_g2els")
+speed = null
+isGrounded = null
+bombs = null
+lives = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=609509391]
 shape = SubResource("CapsuleShape2D_pvuye")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1372349442]
-scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_pvuye")
-animation = &"test"
+animation = &"dies"
 
 [node name="InvincibilityTimer" type="Timer" parent="." unique_id=1273619528]
 

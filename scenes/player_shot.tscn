@@ -1,13 +1,34 @@
 [gd_scene format=3 uid="uid://btl334wif0wb4"]
 
 [ext_resource type="Script" uid="uid://d1u7i8d3pd2ul" path="res://scripts/player_shot.gd" id="1_rd6w6"]
+[ext_resource type="Texture2D" uid="uid://dclocbyify1k7" path="res://assets/Projéteis.png" id="2_56343"]
 [ext_resource type="Texture2D" uid="uid://ca7qtckb032t2" path="res://icon.svg" id="2_jwjfu"]
+[ext_resource type="Texture2D" uid="uid://da1wv053tjnpt" path="res://assets/projPlayer2.png" id="3_56343"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pvuye"]
 size = Vector2(32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_npj22"]
+atlas = ExtResource("2_56343")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o1cc"]
+atlas = ExtResource("3_56343")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_pvuye"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npj22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3o1cc")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_jwjfu")
@@ -24,8 +45,6 @@ script = ExtResource("1_rd6w6")
 shape = SubResource("RectangleShape2D_pvuye")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=707582920]
-scale = Vector2(0.75614035, 1.0295566)
 sprite_frames = SubResource("SpriteFrames_pvuye")
-animation = &"temp"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

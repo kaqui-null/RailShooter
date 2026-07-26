@@ -11,6 +11,8 @@ func _ready():
 
 func _process(delta: float) -> void:
 	global_position += direction * projectileSpeed * delta
+	$AnimatedSprite2D.sprite_frames.set_animation_loop("default", false)
+	$AnimatedSprite2D.play()
 
 	if global_position.distance_to(destination) <= projectileSpeed * delta:
 		queue_free()

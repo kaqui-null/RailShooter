@@ -5,6 +5,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	$AnimatedSprite2D.sprite_frames.set_animation_loop("default", false)
+	$AnimatedSprite2D.play()
 	await get_tree().create_timer(2).timeout
 	queue_free()
 

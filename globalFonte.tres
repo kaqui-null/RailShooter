@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://ukf4q6bcwkga"]
+
+[ext_resource type="FontFile" uid="uid://dd80grmaq2web" path="res://assets/music/monogram.ttf" id="1_loo70"]
+
+[resource]
+default_font = ExtResource("1_loo70")
+default_font_size = 16

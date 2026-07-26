@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="RailShooter"
-run/main_scene="uid://dabcf462sccy3"
+run/main_scene="uid://c6mly8mxl7hv3"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -30,6 +30,10 @@ window/size/window_height_override=384
 [dotnet]
 
 project/assembly_name="RailShooter"
+
+[gui]
+
+theme/custom="uid://ukf4q6bcwkga"
 
 [input]
 

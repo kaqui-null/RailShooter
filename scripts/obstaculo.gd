@@ -4,7 +4,7 @@ extends Area2D
 @export var acceleration: float = 1.5
 @export var type = 1
 
-@export var spawners = [
+@export var spawners : Array = [
 	"SpawnCenter",
 	"SpawnTopLeft",
 	"SpawnTopRight",
@@ -28,15 +28,18 @@ func obstaclePathingSpecification():
 	if type == 1: # blocks top and bottom
 		origin = spawners[0].position
 		destination = spawners[6].position
+		$AnimatedSprite2D.animation = "1"
 	elif type == 2:
 		speed = 0
 		acceleration = 0
 		var randomSpawn = randi()%3
 		origin = spawners[randomSpawn + 1].position
 		destination = spawners[randomSpawn + 1].position
+		$AnimatedSprite2D.animation = "2"
 	elif type == 3:
 		origin = spawners[0].position
 		destination = spawners[randi()%2 + 4].position
+		$AnimatedSprite2D.animation = "3"
 
 	global_position = origin
 
@@ -45,9 +48,20 @@ func _process(delta: float) -> void:
 	speed += acceleration * delta
 	global_position += direction * speed
 
+	$AnimatedSprite2D.scale.x += 1.5 * delta * 0.7
+	$AnimatedSprite2D.scale.y += 1.5 * delta * 0.7
+	$CollisionShape2D.scale.x += 1.5 * delta * 0.7
+	$CollisionShape2D.scale.y += 1.5 * delta * 0.7
+
 	if global_position.distance_to(destination) < speed * delta:
 		queue_free()
 
 	if acceleration == 0:
 		await get_tree().create_timer(3).timeout
+		queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		body.hit()
 		queue_free()

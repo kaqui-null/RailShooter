@@ -6,6 +6,7 @@ extends Node2D
 @onready var obstacleScene = load("res://scenes/obstaculo.tscn")
 @export var testObstacleType: int = 1
 
+@onready var itemScene = load("res://scenes/itens.tscn")
 
 func _process(delta: float) -> void:
 	pass
@@ -24,8 +25,16 @@ func spawn_n_enemies(n, type):
 		enemyInstance.add_to_group("Enemy")
 		add_child(enemyInstance)
 
-#func _on_obstacle_timer_timeout() -> void:
-#	var obstacleInstance = obstacleScene.instantiate()
-#	obstacleInstance.type = testObstacleType
-#	obstacleInstance.add_to_group("Obstacle")
-#	add_child(obstacleInstance)
+func _on_obstacle_timer_timeout() -> void:
+	var obstacleInstance = obstacleScene.instantiate()
+	obstacleInstance.type = randi()%3 + 1
+	obstacleInstance.add_to_group("Obstacle")
+	add_child(obstacleInstance)
+
+
+func _on_item_timer_timeout() -> void:
+	var itensInstance = itemScene.instantiate()
+	print("spawned Item")
+	itensInstance.type = randi()%2 + 1
+	itensInstance.add_to_group("Itens")
+	add_child(itensInstance)
