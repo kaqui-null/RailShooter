@@ -54,7 +54,7 @@ func _input(event):
 			audioPlayer.play()
 			audioPlayer.finished.connect(audioPlayer.queue_free)
 
-			shoot()
+			shoot(get_global_mouse_position())
 
 		elif event.button_index == 2:
 			special()
@@ -91,10 +91,13 @@ func die(): # add gameOverScreen
 		print("dies")
 		get_tree().change_scene_to_packed(gameOverScene)
 
-func shoot():
+func shoot(d):
 	var playerShotInstance = playerShotScene.instantiate()
 	playerShotInstance.add_to_group("PlayerProjectile")
 	playerShotInstance.global_position = global_position
+	playerShotInstance.origin = position
+	print(d)
+	playerShotInstance.destination = d
 	playerShotInstance.top_level = true
 	add_child(playerShotInstance)
 

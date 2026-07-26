@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bi6t2xcpjjmbu"]
 
-[ext_resource type="Texture2D" uid="uid://cuildgw75ycbg" path="res://assets/bgFloresta.png" id="1_dgnyb"]
+[ext_resource type="Texture2D" uid="uid://dmtq6jv7lkr7f" path="res://assets/bg2.png" id="1_8dh7g"]
 [ext_resource type="PackedScene" uid="uid://bdd7jexgql5yp" path="res://scenes/floor.tscn" id="2_2nyr7"]
 [ext_resource type="PackedScene" uid="uid://cdtk1m3v2bs40" path="res://scenes/player.tscn" id="3_7lbts"]
 [ext_resource type="Texture2D" uid="uid://78yb7jrvfbty" path="res://assets/piso2.png" id="3_t1a3c"]
@@ -26,13 +26,13 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.1, 1.1)
 pivot_offset_ratio = Vector2(0.5, 0.5)
-color = Color(0.039215688, 0.7607843, 0, 1)
+color = Color(0.42352942, 0.38039216, 0.8862745, 1)
 
 [node name="background" type="Sprite2D" parent="." unique_id=1699555140]
 z_index = -1
 position = Vector2(256, 96)
 scale = Vector2(2.2, 2.2)
-texture = ExtResource("1_dgnyb")
+texture = ExtResource("1_8dh7g")
 
 [node name="Floor" parent="." unique_id=398908868 instance=ExtResource("2_2nyr7")]
 z_index = -1
