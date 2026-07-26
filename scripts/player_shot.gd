@@ -1,11 +1,11 @@
 extends Area2D
 
 func _ready() -> void:
-	global_position = global_position
+	pass
 
 
 func _process(delta: float) -> void:
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(2).timeout
 	queue_free()
 
 

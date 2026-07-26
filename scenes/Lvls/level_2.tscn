@@ -1,13 +1,13 @@
-[gd_scene format=3 uid="uid://cemm1vh5u145b"]
+[gd_scene format=3 uid="uid://bi6t2xcpjjmbu"]
 
-[ext_resource type="PackedScene" uid="uid://cdtk1m3v2bs40" path="res://scenes/player.tscn" id="1_48oql"]
-[ext_resource type="Texture2D" uid="uid://igo1ysyi022x" path="res://assets/bgMontanhas.png" id="1_cjm5m"]
-[ext_resource type="PackedScene" uid="uid://bdd7jexgql5yp" path="res://scenes/floor.tscn" id="2_crfbs"]
-[ext_resource type="PackedScene" uid="uid://pon1cfnh7gc2" path="res://scenes/Lvls/enemy_spawners.tscn" id="4_crfbs"]
+[ext_resource type="Texture2D" uid="uid://cuildgw75ycbg" path="res://assets/bgFloresta.png" id="1_dgnyb"]
+[ext_resource type="PackedScene" uid="uid://bdd7jexgql5yp" path="res://scenes/floor.tscn" id="2_2nyr7"]
+[ext_resource type="PackedScene" uid="uid://cdtk1m3v2bs40" path="res://scenes/player.tscn" id="3_7lbts"]
+[ext_resource type="PackedScene" uid="uid://pon1cfnh7gc2" path="res://scenes/Lvls/enemy_spawners.tscn" id="4_t1a3c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_crfbs"]
 
-[node name="Level1" type="Node2D" unique_id=249277176]
+[node name="Level2" type="Node2D" unique_id=249277176]
 
 [node name="backgroundcolor" type="ColorRect" parent="." unique_id=406242197]
 z_index = -1
@@ -19,11 +19,11 @@ color = Color(0.039215688, 0.7607843, 0, 1)
 z_index = -1
 position = Vector2(256, 96)
 scale = Vector2(2, 2)
-texture = ExtResource("1_cjm5m")
+texture = ExtResource("1_dgnyb")
 
-[node name="Floor" parent="." unique_id=398908868 instance=ExtResource("2_crfbs")]
+[node name="Floor" parent="." unique_id=398908868 instance=ExtResource("2_2nyr7")]
 
-[node name="Player" parent="." unique_id=239070793 instance=ExtResource("1_48oql")]
+[node name="Player" parent="." unique_id=239070793 instance=ExtResource("3_7lbts")]
 position = Vector2(256, 258.667)
 speed = 200
 specialShot = 3
@@ -36,7 +36,7 @@ position = Vector2(256, 384)
 scale = Vector2(87.582825, -4.543735)
 shape = SubResource("RectangleShape2D_crfbs")
 
-[node name="EnemySpawners" parent="." unique_id=1949510763 instance=ExtResource("4_crfbs")]
+[node name="EnemySpawners" parent="." unique_id=1949510763 instance=ExtResource("4_t1a3c")]
 testEnemyType = 5
 testObstacleType = 3
 

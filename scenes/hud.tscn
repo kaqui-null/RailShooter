@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://brx3ghhrkqkgb"]
+
+[node name="HUD" type="Control" unique_id=133828489]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 256.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator" type="HSeparator" parent="." unique_id=1546188403]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 4.0
+
+[node name="Sprite2D" type="Sprite2D" parent="HSeparator" unique_id=1343546049]
+
+[node name="Label" type="Label" parent="HSeparator" unique_id=1394574858]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

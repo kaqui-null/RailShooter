@@ -73,7 +73,7 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func shoot():
-	var player = sceneRoot.get_node("/root/Level1/Player")
+	var player = get_parent().get_parent().get_node("Player")
 	projectileOrigin = global_position
 	projectileDestination = player.position
 	projectileDirection.x = projectileDestination.x - projectileOrigin.x

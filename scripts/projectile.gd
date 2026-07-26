@@ -12,7 +12,7 @@ func _ready():
 func _process(delta: float) -> void:
 	global_position += direction * projectileSpeed * delta
 
-	if global_position.distance_to(destination) < projectileSpeed * delta:
+	if global_position.distance_to(destination) <= projectileSpeed * delta:
 		queue_free()
 
 

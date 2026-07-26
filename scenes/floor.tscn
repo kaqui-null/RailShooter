@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bdd7jexgql5yp"]
+
+[ext_resource type="Script" uid="uid://kxiawij8d6vq" path="res://scripts/floor.gd" id="1_kuqtn"]
+[ext_resource type="Texture2D" uid="uid://b03o3pcnwqxty" path="res://assets/piso1-testeFOV.png" id="2_whr1e"]
+
+[node name="Floor" type="Node2D" unique_id=398908868]
+script = ExtResource("1_kuqtn")
+ground_texture = ExtResource("2_whr1e")

@@ -59,6 +59,8 @@ func die(): # add gameOverScreen
 func shoot():
 	var playerShotInstance = playerShotScene.instantiate()
 	playerShotInstance.add_to_group("PlayerProjectile")
+	playerShotInstance.global_position = global_position
+	playerShotInstance.top_level = true
 	add_child(playerShotInstance)
 
 func special():
