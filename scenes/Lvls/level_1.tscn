@@ -13,12 +13,14 @@
 z_index = -1
 offset_right = 512.0
 offset_bottom = 384.0
+scale = Vector2(1.1, 1.1)
+pivot_offset_ratio = Vector2(0.5, 0.5)
 color = Color(0.039215688, 0.7607843, 0, 1)
 
 [node name="background" type="Sprite2D" parent="." unique_id=1699555140]
 z_index = -1
 position = Vector2(256, 96)
-scale = Vector2(2, 2)
+scale = Vector2(2.2, 2.2)
 texture = ExtResource("1_cjm5m")
 
 [node name="Floor" parent="." unique_id=398908868 instance=ExtResource("2_crfbs")]
@@ -29,10 +31,40 @@ speed = 200
 specialShot = 3
 continues = 0
 
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=894356291]
+limit_left = -25
+limit_top = -10
+limit_right = 536
+limit_bottom = 393
+limit_smoothed = true
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1783172949]
 position = Vector2(256, 384)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=683483980]
+scale = Vector2(87.582825, -4.543735)
+shape = SubResource("RectangleShape2D_crfbs")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=605117743]
+position = Vector2(-71, 258)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1065468615]
+scale = Vector2(87.582825, -4.543735)
+shape = SubResource("RectangleShape2D_crfbs")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=345059644]
+position = Vector2(584, 258)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=2110187478]
+scale = Vector2(87.582825, -4.543735)
+shape = SubResource("RectangleShape2D_crfbs")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=568904798]
+position = Vector2(257, -56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=306248848]
 scale = Vector2(87.582825, -4.543735)
 shape = SubResource("RectangleShape2D_crfbs")
 

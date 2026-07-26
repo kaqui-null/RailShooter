@@ -5,20 +5,29 @@
 [ext_resource type="PackedScene" uid="uid://cdtk1m3v2bs40" path="res://scenes/player.tscn" id="3_7lbts"]
 [ext_resource type="PackedScene" uid="uid://pon1cfnh7gc2" path="res://scenes/Lvls/enemy_spawners.tscn" id="4_t1a3c"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_crfbs"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgnyb"]
 
 [node name="Level2" type="Node2D" unique_id=249277176]
 
 [node name="backgroundcolor" type="ColorRect" parent="." unique_id=406242197]
 z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 offset_right = 512.0
 offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1, 1.1)
+pivot_offset_ratio = Vector2(0.5, 0.5)
 color = Color(0.039215688, 0.7607843, 0, 1)
 
 [node name="background" type="Sprite2D" parent="." unique_id=1699555140]
 z_index = -1
 position = Vector2(256, 96)
-scale = Vector2(2, 2)
+scale = Vector2(2.2, 2.2)
 texture = ExtResource("1_dgnyb")
 
 [node name="Floor" parent="." unique_id=398908868 instance=ExtResource("2_2nyr7")]
@@ -29,15 +38,45 @@ speed = 200
 specialShot = 3
 continues = 0
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1783172949]
-position = Vector2(256, 384)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=683483980]
-scale = Vector2(87.582825, -4.543735)
-shape = SubResource("RectangleShape2D_crfbs")
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=267872193]
+limit_left = -24
+limit_top = -10
+limit_right = 538
+limit_bottom = 394
+limit_smoothed = true
 
 [node name="EnemySpawners" parent="." unique_id=1949510763 instance=ExtResource("4_t1a3c")]
 testEnemyType = 5
 testObstacleType = 3
 
 [node name="Projectiles" type="Node2D" parent="." unique_id=2055248795]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1408630503]
+position = Vector2(256, 384)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2013129394]
+scale = Vector2(87.582825, -4.543735)
+shape = SubResource("RectangleShape2D_dgnyb")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=2104643697]
+position = Vector2(-71, 258)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=564748260]
+scale = Vector2(87.582825, -4.543735)
+shape = SubResource("RectangleShape2D_dgnyb")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1777106611]
+position = Vector2(584, 258)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=538814151]
+scale = Vector2(87.582825, -4.543735)
+shape = SubResource("RectangleShape2D_dgnyb")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1030162544]
+position = Vector2(257, -56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=481319030]
+scale = Vector2(87.582825, -4.543735)
+shape = SubResource("RectangleShape2D_dgnyb")
